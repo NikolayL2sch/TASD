@@ -27,38 +27,38 @@ void print_error(short rc)
 {
     switch(rc)
     {
-        case INCORRECT_FLOAT:
-            printf("Warning! Некорректно записано вещественное число!\n");
-            break;
-        case MANTISSA_OVERFLOW:
-            printf("Warning! В мантиссе больше 30 элементов!\n");
-            break;
-        case ORDER_OVERFLOW:
-            printf("Warning! В порядке больше 5 цифр!\n");
-            break;
-        case M_POINT_ERR:
-            printf("Warning! В вещественном числе находятся несколько точек, в мантиссе!\n");
-            break;
-        case M_SIGN_ERR:
-            printf("Warning! Записано несколько знаков перед мантиссой или в самой мантиссе!\n");
-            break;
-        case O_POINT_ERR:
-            printf("Warning! В порядке не должно быть точек!\n");
-            break;
-        case O_SIGN_ERR:
-            printf("Warning! Записано несколько знаков перед порядком или в самом порядке!\n");
-            break;
-        case EPS_ERR:
-            printf("Warning! В числе находятся несколько обозначений \"e\" либо только \"e\"!\n");
-            break;
-        case ORDER_INCORRECT:
-            printf("Warning! В порядке ошибка!\n");
+        case EMPTY_STRING_ERROR:
+            printf("ОШИБКА! Введена пустая строка!\n");
             break;
         case STRING_OVERFLOW:
-            printf("Warning! Переполнение возможно допустимых введенных значений!\n");
+            printf("ОШИБКА! Переполнение возможно допустимых введенных значений!\n");
             break;
-        case STRING_EMPTY:
-            printf("Warning! Введена пустая строка!\n");
+        case EPS_ERR:
+            printf("ОШИБКА! В числе находятся несколько обозначений \"e\" либо только \"e\"!\n");
+            break;
+        case INCORRECT_NUM:
+            printf("ОШИБКА! Некорректно записано вещественное число!\n");
+            break;
+        case MANTISSA_SIGN_ERR:
+            printf("ОШИБКА! Записано несколько знаков перед мантиссой или в самой мантиссе (знак должен быть один)!\n");
+            break;
+        case MANTISSA_POINT_ERR:
+            printf("ОШИБКА! В вещественном числе находятся несколько точек (в мантиссе)!\n");
+            break;
+        case MANTISSA_OVERFLOW:
+            printf("ОШИБКА! В мантиссе больше 30 элементов!\n");
+            break;
+        case ORDER_SIGN_ERR:
+            printf("ОШИБКА! Записано несколько знаков перед порядком или в самом порядке (знак должен быть один)!\n");
+            break;
+        case ORDER_POINT_ERR:
+            printf("ОШИБКА! В порядке не должно быть точек!\n");
+            break;
+        case ORDER_OVERFLOW:
+            printf("ОШИБКА! В порядке больше 5 цифр!\n");
+            break;
+        case ORDER_INCORRECT:
+            printf("ОШИБКА! Неверно указан порядок!\n");
             break;
         default:
             break;

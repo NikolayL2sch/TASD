@@ -94,7 +94,7 @@ big_float sum_big_float(const big_float *num1, const big_float *num2)
     return result;
 }
 
-big_float multiple_big_float(big_float num1, big_float num2)
+big_float multiply_big_float(big_float num1, big_float num2)
 {
     big_float result, buff;
     big_float_default(&result);

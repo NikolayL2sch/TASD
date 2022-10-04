@@ -69,7 +69,7 @@ big_float sum_big_float(const big_float *num1, const big_float *num2);
  * \param [in] num1 константный указатель на второе число суммы
  * \return Возращает число big_float - результат умножения
  */
-big_float multiple_big_float(big_float num1, big_float num2);
+big_float multiply_big_float(big_float num1, big_float num2);
 
 /**
  * \fn void print_field();
