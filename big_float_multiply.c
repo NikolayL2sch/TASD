@@ -1,7 +1,5 @@
-/**
- * \file big_float_multiply.c
- * \brief Файл с процедурами, реализующими умножения чисел типа big_float
- */
+//Файл с процедурами, реализующими умножение чисел типа big_float
+
 #include "funcs.h"
 #include "constants.h"
 
@@ -40,7 +38,7 @@ void swap_right_array(short *arr, size_t n)
     arr[0] = 0;
 }
 
-void multiple_arr_to_int(big_float *res, const big_float *num, short fg, short digit)
+void multiply_digit(big_float *res, const big_float *num, short fg, short digit)
 {
     res->size = num->size + digit;
     short multi = 0, mod = 0, decade = 0;
@@ -52,9 +50,9 @@ void multiple_arr_to_int(big_float *res, const big_float *num, short fg, short d
         decade = multi / 10;
         res->mantissa[i] = mod;
     }
-    if (num->size < ARRAY_SIZE && decade > 0)
+    if (num->size < MAX_ARRAY_SIZE && decade > 0)
     {
-        swap_right_array(res->mantissa, ++res->size);
+        shift_arr_right(res->mantissa, ++res->size);
         res->mantissa[++i] = decade;
     }
 }
@@ -86,7 +84,7 @@ big_float sum_big_float(const big_float *num1, const big_float *num2)
         decade = sum / 10;
         result.mantissa[i] = mod;
     }
-    if (result.size < ARRAY_SIZE && decade > 0)
+    if (result.size < MAX_ARRAY_SIZE && decade > 0)
     {
         swap_right_array(result.mantissa, ++result.size);
         result.mantissa[++i] = decade;
@@ -104,7 +102,7 @@ big_float multiply_big_float(big_float num1, big_float num2)
     for(;i >= 0; i--, j++)
     {
         buff.size = result.size;
-        multiple_arr_to_int(&buff, &num1, num2.mantissa[i], j);
+        multiply_digit(&buff, &num1, num2.mantissa[i], j);
         result = sum_big_float(&result, &buff);
         big_float_default(&buff);
     }
