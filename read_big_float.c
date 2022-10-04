@@ -110,24 +110,22 @@ int read_big_float(big_float *number)
                     return ORDER_POINT_ERR;
                 else if (str[i] == 'e' || str[i] == 'E')
                     return EPS_ERR;
-                else
-                    return ORDER_INCORRECT;
+                return ORDER_INCORRECT;
             }
         }
         if (sign)
         {
-            sign = 0;
-            order *= -1;
+            sign = false;
+            order*= -1;
         }
     }
     if (number->size != 0)
         number->order = m + order + order_p;
-    if (number->size == 0)
+    else
     {
         n = 1;
         number->size = 1;
     }
-    //if (number->order > ORDER_UP_OVERFLOW || number->order < ORDER_DOWN_OVERFLOW)
-    //    return ORDER_OVERFLOW;
-    return rc;
+
+    return EXIT_SUCCESS;
 }
