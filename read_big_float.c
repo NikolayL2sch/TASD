@@ -20,7 +20,7 @@ int read_big_float(big_float *number)
     int i = 0;
 
     //проверка правильности и корректирование считанного значения
-    if (fgets(str, MAX_STRING_FLOAT + 2, stdin) == NULL)
+    if (fgets(str, MAX_STRING_FLOAT, stdin) == NULL)
         return EMPTY_STRING_ERROR;
     
     int str_len = strlen(str);
