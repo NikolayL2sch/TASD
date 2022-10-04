@@ -18,7 +18,7 @@ void round_mantissa(big_float *num)
         }
         if (decade > 0)
         {
-            swap_right_array(num->mantissa, num->size);
+            shift_arr_right(num->mantissa, num->size);
             num->mantissa[0] = decade;
             decade = 0;
         }
@@ -31,7 +31,7 @@ void del_zero(big_float *num)
         num->size = num->size - 1;
 }
 
-void swap_right_array(short *arr, size_t n)
+void shift_arr_right(short *arr, size_t n)
 {
     for (int i = n - 1; i >= 0; i--)
         arr[i] = arr[i - 1];
@@ -86,7 +86,7 @@ big_float sum_big_float(const big_float *num1, const big_float *num2)
     }
     if (result.size < MAX_ARRAY_SIZE && decade > 0)
     {
-        swap_right_array(result.mantissa, ++result.size);
+        shift_arr_right(result.mantissa, ++result.size);
         result.mantissa[++i] = decade;
     }
     return result;

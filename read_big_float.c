@@ -2,7 +2,7 @@
 #include "funcs.h"
 #include "constants.h"
 
-void fill_big_float(big_float *num)
+void big_float_default(big_float *num)
 {
     num->size = 0;
     num->order = 0;
@@ -17,7 +17,7 @@ int read_big_float(big_float *number)
     short n = 0, m = 0;
     int order = 0, order_p = 0;
     bool was_point = false, sign = false, was_base = false, flag = false;
-    size_t i = 0;
+    int i = 0;
 
     //проверка правильности и корректирование считанного значения
     if (fgets(str, MAX_STRING_FLOAT + 2, stdin) == NULL)
@@ -85,7 +85,7 @@ int read_big_float(big_float *number)
             return INCORRECT_NUM;
         }
         i++;
-    }
+    } 
     if (i - was_point - was_base - sign > M_N)
         return MANTISSA_OVERFLOW;
     

@@ -4,7 +4,7 @@
  */
 #include "funcs.h"
 #include "constants.h"
-
+ 
 void print_field(void)
 {
     for (size_t i = 0; i < M_N; i++)

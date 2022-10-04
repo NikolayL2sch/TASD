@@ -7,9 +7,9 @@ int main()
 
     int return_code = 0;
 
-    fill_big_float(&num_1);
-    fill_big_float(&num_2);
-    fill_big_float(&result);
+    big_float_default(&num_1);
+    big_float_default(&num_2);
+    big_float_default(&result);
 
     print_task();
 

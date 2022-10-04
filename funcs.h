@@ -1,6 +1,8 @@
 #ifndef _FUNCS_H_
 #define _FUNCS_H_
 
+#include "constants.h"
+
 //big float struct
 typedef struct
 {
@@ -11,8 +13,8 @@ typedef struct
 } big_float;
 
 //Функция заполняет поля стурктуры big_float дефолтными значениями
-void fill_big_float(big_float *num);
-
+void big_float_default(big_float *num);
+ 
 /**Функция считывания данных(специальных вещественных чисел)
 Возвращает ненулевой код ошибки или нулевой успешного выполнения**/
 int read_big_float(big_float *number);

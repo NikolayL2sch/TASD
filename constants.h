@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
+ 
 #define M_N 30
 #define MAX_ARRAY_SIZE 100
 #define MAX_STRING_FLOAT 100
