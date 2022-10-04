@@ -6,7 +6,6 @@ int main()
     big_float num_1, num_2, result;
 
     int return_code = 0;
-
     big_float_default(&num_1);
     big_float_default(&num_2);
     big_float_default(&result);
