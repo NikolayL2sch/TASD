@@ -19,6 +19,7 @@ int main()
     if (!return_code)
     {
         printf("\n");
+        printf("Введите вещественное число:");
         print_field();
 
         return_code = read_big_float(&num_2);
