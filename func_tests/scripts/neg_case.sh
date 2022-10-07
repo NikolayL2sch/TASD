@@ -1,19 +1,11 @@
 #!/bin/bash
-file_app_in="${1}"
-file_app_args=""
+
+args=""
 
 if [ $# -gt 1 ]; then
-  file_app_args=$(cat "${2}")
+	args=$2
 fi
-
-if [ -n "$USE_VALGRIND" ]; then
-  eval "valgrind --log-file=valgrind_out.txt -q ../../app.exe ../../$file_app_args ./program_out.txt"
-else
-  eval "../../app.exe < $file_app_in &> /dev/null"
+if ! eval "../../app.exe ${args}<${1}>./out.txt"; then
+	exit 1
 fi
-
-if test $? -ne 0; then
-  exit 0
-else
-  exit 1
-fi
+exit 0

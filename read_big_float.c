@@ -30,7 +30,7 @@ int read_big_float(big_float *number)
     if (str_len > MAX_STRING_FLOAT)
         return STRING_OVERFLOW;
     
-    if (str_len == 0)
+    if (str[0] == '\0')
         return EMPTY_STRING_ERROR;
     
     if (str[0] == 'e' || str[0] == 'E')
@@ -40,10 +40,12 @@ int read_big_float(big_float *number)
     if (str[0] == '-' || str[0] == '+')
     {
         number->sign = str[0];
+        sign = true;
         i++;
-    } else
+    }
+    else
         number->sign = '+';
-    sign = true;
+    
 
     while (i < (M_N + was_point + sign + 1) && str[i] != '\0' && !was_base)
     {
