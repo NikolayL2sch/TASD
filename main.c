@@ -12,7 +12,7 @@ int main()
 
     print_task();
 
-    printf("Введите вещественное число:");
+    printf("Р’РІРµРґРёС‚Рµ РІРµС‰РµСЃС‚РІРµРЅРЅРѕРµ С‡РёСЃР»Рѕ:");
     print_field();
 
     return_code = read_big_float(&num_1);
@@ -30,7 +30,7 @@ int main()
                 return_code = ORDER_OVERFLOW;
             else
             {
-                printf("Результат: ");
+                printf("Р РµР·СѓР»СЊС‚Р°С‚: ");
                 print_big_float(&result);
             }
         }
