@@ -1,11 +1,9 @@
 #!/bin/bash
 
-first_file=$(grep -o -E "[A-Za-z0-9]+ [0-9]+\n?" "$1" | tr -d "\n")
-second_file=$(grep -o -E "[A-Za-z0-9]+ [0-9]+\n?" "$1" | tr -d "\n")
+first_file=$1
+second_file=$2
 
-if [ "$first_file" = "$second_file" ]; then
+if cmp "$first_file" "$second_file" &>/dev/null; then
 	exit 0
-	echo -e "Here"
-else
-	exit 1
+exit 1
 fi
